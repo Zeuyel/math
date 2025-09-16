@@ -1,0 +1,12 @@
+{
+  "vimMode": true,
+  "uriCallbacks": true,
+  "alwaysUpdateLinks": true,
+  "autoConvertHtml": false,
+  "livePreview": true,
+  "readableLineLength": false,
+  "foldHeading": true,
+  "showLineNumber": true,
+  "autoPairMarkdown": false,
+  "attachmentFolderPath": "./attachments"
+}

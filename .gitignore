@@ -1,0 +1,31 @@
+# macOS / OS files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+*.icloud
+
+# Obsidian caches and generated state
+.obsidian/cache/
+.obsidian/workspace*
+.obsidian/plugins/
+
+# Editor/Tooling
+.cursor/
+.vscode/
+.idea/
+
+# Local caches and large archives
+.smtcmp_json_db/
+.smtcmp_vector_db*
+*.log
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Large assets folder (do not version)
+asset/
+
+# Existing rule (keep ignoring PDFs globally)
+*.pdf
