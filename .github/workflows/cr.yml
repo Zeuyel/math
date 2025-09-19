@@ -1,0 +1,43 @@
+name: Code Review
+
+permissions:
+  contents: read
+  pull-requests: write
+  # models: true # if you choose use github models, set this to be true
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  test:
+    # if: ${{ contains(github.event.*.labels.*.name, 'gpt review') }} # Optional; to run only when a label is attached
+    runs-on: ubuntu-latest
+    steps:
+      - uses: anc95/ChatGPT-CodeReview@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          # else use standard llm model
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_ENDPOINT: https://codex-api-hk-cn2.packycode.com/v1
+          MODEL: gpt-5-high # https://platform.openai.com/docs/models
+
+          # common
+          LANGUAGE: Chinese
+          PROMPT: |
+            您是一位严谨的编辑。请审查 Pull Request 中的 .md 文件变更。
+            您的任务是：
+            1.  首先，对整个笔记的增删给出详细的中文摘要。
+            2.  然后，检查文本中的拼写、语法和标点错误。
+            3.  评估内容是否清晰、准确、易于理解。
+            4.  检查 Markdown 中的公式格式是否规范。
+            5.  只对有必要修改的地方提出具体建议，保持评论简洁。
+            
+          # example: Please check if there are any confusions or irregularities in the following code diff:
+          # top_p: 1 # https://platform.openai.com/docs/api-reference/chat/create#chat/create-top_p
+          # temperature: 0.7 # https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature
+          # max_tokens: 10000
+          # MAX_PATCH_LENGTH: 10000 # if the patch/diff length is large than MAX_PATCH_LENGTH, will be ignored and won't review. By default, with no MAX_PATCH_LENGTH set, there is also no limit for the patch/diff length.
+          # IGNORE_PATTERNS: /node_modules/**/*,*.md # glob pattern or regex pattern to ignore files, separated by comma
+          INCLUDE_PATTERNS: *.md # glob pattern or regex pattern to include files, separated by comma
