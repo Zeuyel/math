@@ -4,9 +4,10 @@
   "alwaysUpdateLinks": true,
   "autoConvertHtml": false,
   "livePreview": true,
-  "readableLineLength": false,
+  "readableLineLength": true,
   "foldHeading": true,
   "showLineNumber": true,
   "autoPairMarkdown": false,
-  "attachmentFolderPath": "./attachments"
+  "attachmentFolderPath": "./attachments",
+  "newFileLocation": "current"
 }
