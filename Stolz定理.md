@@ -294,7 +294,7 @@ $\theta \in (x,x+\pi)$ ，当 $x\to \infty, \frac{\theta}{x}\to 1$ ,因此：
 $$
 \lim_{ x \to \infty }  \frac{2 x^{\alpha}}{\pi(\alpha+1)x^{\alpha}} = \frac{2}{\pi (\alpha+1)}
 $$
-但是上面没有说明如何为什么我们的函数形式的stolz可以使用。我们的思路时，通过离散的自然数来表示原式子，通过夹逼准则来说明精准的极限值怎么取得：对于每个$x \ge 0$ 存在唯一的 $n \in \mathbb{N}$ ，使得：
+但是上面没有说明如何为什么我们的函数形式的stolz可以使用。我们的思路时，通过离散的自然数来表示原式，通过夹逼准则来说明精准的极限值怎么取得：对于每个$x \ge 0$ 存在唯一的 $n \in \mathbb{N}$ ，使得：
 $$
 x \in [(n-1)\pi, n \pi)
 $$
@@ -310,10 +310,13 @@ $$
 \frac{1}{\pi^{\alpha+1}} \lim_{n \to \infty} \frac{\int_0^{n\pi} t^\alpha |\sin t|dt} {n^{\alpha+1}} 
 $$
 这里的 自然数 能够使得我们自然的使用stolz定理，我们先将上面的积分分开成数列模式。我们先计算夹逼的左边，注意到：
+
 $$
 LHR = \frac{1}{\pi ^{\alpha+1}}\lim_{ n \to \infty } \frac{\sum _{k=1}^{n} \int _{(k-1)\pi}^{k\pi} t^{\alpha}|\sin t| dt } {n^{\alpha+1}}
 $$
+
 这里需要强调的是，我们通过区间的分割已经把变上限积分转换为了无穷个定积分相加，因此这里我们只需要换元即可：  ^nvhkt0
+
 $$
 \sum _{k=1}^{n} \int _{(k-1)\pi} ^{k\pi} t^{\alpha}|\sin t|dt = \sum _{k=1}^{n} \int _{0}^{\pi}[t+(k-1)\pi]^{\alpha}|\sin t|dt
 $$
