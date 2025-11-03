@@ -163,26 +163,43 @@ $$
 
 $$
 \begin{align}
-\lim_{n \to \infty} n x_n = \lim_{n \to \infty} \frac{n}{\frac{1}{x_n}}  \\
-\frac{1}{x_n} 严格递增 并且 \to \infty \\
-up = \lim_{n \to \infty}\frac{1}{\frac{1}{x_{n+1}} - \frac{1}{x_n}} = \lim_{n \to \infty}\frac{x_{n+1}\cdot x_n}{x_n - x_{n+1}} = \lim_{n \to \infty} \frac{\ln(x_n +1) x_n}{x_n - \ln(x_n +1)} \\
+\lim_{n \to \infty} n x_n  & = \lim_{n \to \infty} \frac{n}{\frac{1}{x_n}}  \\
+\frac{1}{x_n} 严格递增 并且  & \to \infty \\
+up  & = \lim_{n \to \infty}\frac{1}{\frac{1}{x_{n+1}} - \frac{1}{x_n}}  \\
+ & = \lim_{n \to \infty}\frac{x_{n+1}\cdot x_n}{x_n - x_{n+1}}  \\
+ & = \lim_{n \to \infty} \frac{\ln(x_n +1) x_n}{x_n - \ln(x_n +1)} \\
 转为函数极限
-\lim_{x \to 0} \frac{\ln(x +1) x}{x - \ln(x+1)  } = \lim_{x \to 0} \frac{(x) \cdot x}{x - (x - \frac{1}{2}x^{2})} = \lim_{x \to 0} \frac{x^{2}}{\frac{1}{2} x^{2}} = 2
+\lim_{x \to 0} \frac{\ln(x +1) x}{x - \ln(x+1)  }  & = \lim_{x \to 0} \frac{(x) \cdot x}{x - (x - \frac{1}{2}x^{2})} = \lim_{x \to 0} \frac{x^{2}}{\frac{1}{2} x^{2}} = 2
 \end{align}
 $$
 
 因此 我们的到了 一个等价量，尝试分离 $\lim_{n \to \infty} \frac{n(n x_n -2)}{\ln n}$
 
 $$
-\lim_{n \to \infty} \frac{n x_n (n - \frac{2}{x_n})}{\ln n} = 2 \lim_{n \to \infty}\frac{n-\frac{2}{x_n}}{\ln n } =  2 \lim_{n \to \infty} \frac{1 - \frac{2}{x_{n+1}} + \frac{2}{x_n}}{\ln(n+1) - \ln n} = 2 \lim_{n \to \infty} \frac{1 - \frac{2}{x_{n+1}} + \frac{2}{x_n} }{\ln(1+\frac{1}{n})} = 2\lim_{n \to \infty} \frac{1 - \frac{2}{x_{n+1}} + \frac{2}{x_n}}{\frac{1}{n}}
+\begin{align}
+\lim_{n \to \infty} \frac{n x_n (n - \frac{2}{x_n})}{\ln n}  & = 2 \lim_{n \to \infty}\frac{n-\frac{2}{x_n}}{\ln n }  \\
+ & =  2 \lim_{n \to \infty} \frac{1 - \frac{2}{x_{n+1}} + \frac{2}{x_n}}{\ln(n+1) - \ln n}  \\
+ & = 2 \lim_{n \to \infty} \frac{1 - \frac{2}{x_{n+1}} + \frac{2}{x_n} }{\ln(1+\frac{1}{n})}  \\
+ & = 2\lim_{n \to \infty} \frac{1 - \frac{2}{x_{n+1}} + \frac{2}{x_n}}{\frac{1}{n}}
+\end{align}
 $$
 
 我们已经找到了 $n x_n \sim 2$ 的等价，又成功把 $n$ 分离出来了，就直接 等价替换了
 
 $$
-up = 2\lim_{n \to \infty} \frac{1 - \frac{2}{x_{n+1}} + \frac{2}{x_n}}{\frac{x_n}{2}} = 2\lim_{n \to \infty} [1 - \frac{2}{\ln(x_n+1)} + \frac{2}{x_n}] \frac{2}{x_n} \\
-海涅准则 转为 函数极限  \\
-4 \lim_{x \to 0} \frac{x \ln(1+x) - 2 x + 2 \ln(x +1)}{x^{2} \ln(x +1)} = 4 \lim_{x \to 0} = 4 \lim_{x \to 0} \frac{(x+2)(x - \frac{x^{2}}{2} + \frac{x^{3}}{3} + o(x^{3})) - 2x}{x^{3} + x^{2}o(x)} = 4 \lim_{x \to 0} \frac{(\frac{2}{3} - \frac{1}{2})x^{3} + o(x^{3})}{x^{3} + o(x^{3})} = 4 \cdot \frac{1}{6} = \frac{2}{3}
+\begin{align}
+up  & = 2\lim_{n \to \infty} \frac{1 - \frac{2}{x_{n+1}} + \frac{2}{x_n}}{\frac{x_n}{2}}  \\
+ & = 2\lim_{n \to \infty} [1 - \frac{2}{\ln(x_n+1)} + \frac{2}{x_n}] \frac{2}{x_n} \\
+\end{align} 
+$$
+
+海涅准则转为函数极限得到
+
+$$
+\begin{align}
+4 \lim_{x \to 0} \frac{x \ln(1+x) - 2 x + 2 \ln(x +1)}{x^{2} \ln(x +1)}  &  = 4 \lim_{x \to 0} \frac{(x+2)(x - \frac{x^{2}}{2} + \frac{x^{3}}{3} + o(x^{3})) - 2x}{x^{3} + x^{2}o(x)}  \\
+ & = 4 \lim_{x \to 0} \frac{(\frac{2}{3} - \frac{1}{2})x^{3} + o(x^{3})}{x^{3} + o(x^{3})} = 4 \cdot \frac{1}{6} = \frac{2}{3}
+\end{align}
 $$
 
 事实上 要求证明的极限 也给出了 $x_n$ 的等价量。
@@ -257,8 +274,6 @@ $$
 ![](image/20250419201338.png)
 
 ![](image/20250419201930.png)
-
-
 
 ## 函数stolz
 
