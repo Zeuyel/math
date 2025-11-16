@@ -1,0 +1,115 @@
+#separator:tab
+#html:true
+#tags column:4
+互斥事件 (互不相容)	两个事件 A 和 B 不能同时发生，即它们的交集为空。数学表示为 \(A \cap B = \emptyset\)。		
+对立事件 (互补事件)	两个事件 A 和 B 互斥，且它们的并集是整个样本空间。数学表示为 \(A \cap B = \emptyset\) 且 \(A \cup B = \Omega\)。事件 A 的对立事件记作 \(\overline{A}\)。		
+事件的差	事件 A 发生而事件 B 不发生，记作 \(A - B = A - AB\)。等价于 \(A \cap \overline{B}\)		
+事件的运算律 - 结合律	\((A \cup B) \cup C = A \cup (B \cup C)\)<br>\((A \cap B) \cap C = A \cap (B \cap C)\)		
+事件的运算律 - 分配律	\(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\)<br>\(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\)		
+事件的运算律 - 德摩根律 (对偶律)	\(\overline{A \cup B} = \overline{A} \cap \overline{B}\)<br>\(\overline{A \cap B} = \overline{A} \cup \overline{B}\)		
+概率的公理化定义	一个事件函数 \(P(\cdot)\) 满足：<br>1. 非负性: \(P(A) \ge 0\)<br>2. 规范性: \(P(\Omega) = 1\)<br>3. 互斥可加性: 对于两两互斥的事件 \(A_i\)，有 \(P(\cup A_i) = \sum P(A_i)\)		
+概率的基本性质 - 加法公式	\(P(A \cup B) = P(A) + P(B) - P(AB)\)<br>\(P(A \cup B \cup C) = P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)\)		
+概率的基本性质 - 减法公式	\(P(A - B) = P(A) - P(AB)\)。若 \(B \subseteq A\)，则 \(P(A-B) = P(A) - P(B)\)。		
+概率的基本性质 - 逆事件概率	\(P(\overline{A}) = 1 - P(A)\)		
+古典概型	试验满足：<br>1. 样本空间只包含有限个样本点；<br>2. 每个样本点发生的可能性相同。<br>概率计算: \(P(A) = \frac{\text{事件A包含的样本点数}}{\text{样本空间的总样本点数}}\)		
+几何概型	试验的样本空间为可度量的几何区域，且样本点落在任何子区域的概率与该子区域的度量（长度、面积、体积）成正比。<br>概率计算: \(P(A) = \frac{\text{A的几何度量}}{\Omega\text{的几何度量}}\)		
+条件概率	在事件 A 发生的条件下，事件 B 发生的概率，记为 \(P(B|A)\)。<br>定义式: \(P(B|A) = \frac{P(AB)}{P(A)}\)，其中 \(P(A) &gt; 0\)。		
+概率乘法公式	\(P(AB) = P(A)P(B|A)\)。推广到 n 个事件: \(P(A_1A_2...A_n) = P(A_1)P(A_2|A_1)...P(A_n|A_1...A_{n-1})\)。		
+完备事件组 (一个划分)	一组事件 \(B_1, B_2, ..., B_n\) 满足：<br>1. 两两互斥: \(B_i B_j = \emptyset\) for \(i \ne j\)<br>2. 并集为全集: \(\cup_{i=1}^n B_i = \Omega\)		
+全概率公式	设 \(B_1, ..., B_n\) 是一个完备事件组，则对任意事件 A，有：<br>\(P(A) = \sum_{i=1}^n P(B_i)P(A|B_i)\)		
+贝叶斯公式 (逆概率公式)	设 \(B_1, ..., B_n\) 是一个完备事件组，则：<br>\(P(B_i|A) = \frac{P(B_i)P(A|B_i)}{\sum_{j=1}^n P(B_j)P(A|B_j)}\)		
+事件的独立性	定义：两个事件 A, B 相互独立，当且仅当 \(P(AB) = P(A)P(B)\)<br><br>对于多个事件，要求任意子集的积事件概率都等于各事件概率之积。		
+n重伯努利试验概率公式 (二项分布)	在 n 次独立重复试验中，事件 A (概率为 p) 恰好发生 k 次的概率为：<br>\(P_n(k) = C_n^k p^k (1-p)^{n-k}\)<br>等价于二项分布，记作&nbsp;\(X \sim B(n,p)\)。		分布
+随机变量	定义在样本空间 \(\Omega\) 上的实值单值函数，记为 \(X(\omega)\) 或 \(X\)。		
+分布函数 (CDF)	随机变量 \(X\) 的分布函数定义为 &nbsp;\(F(x) = P\{X \le x\}\)，对任意实数 \(x\) 成立。		
+分布函数的性质	1. 单调不减: \(x_1 &lt; x_2 \Rightarrow F(x_1) \le F(x_2)\)<br>2. 规范性: \(F(-\infty)=0, F(+\infty)=1\)<br>3. 右连续性: \(F(x_0+0) = F(x_0)\)，体现在左闭右开区间。		
+用分布函数计算概率	\(P\{a &lt; X \le b\} = F(b) - F(a)\)<br>\(P\{X=a\} = F(a) - F(a-0)\) (在 F(x) 的跳跃点处)		
+概率分布律&nbsp;	离散型随机变量 X 的分布律是 \(P\{X=x_i\} = p_i\)，其中 \(p_i \ge 0\) 且 \(\sum p_i = 1\)。		
+0-1分布 (伯努利分布)	随机变量 \(X\) 只取 0 和 1 两个值，分布律为 \(P\{X=1\}=p, P\{X=0\}=1-p\)。记作 \(X \sim B(1,p)\)。		
+泊松分布	"描述单位时间/空间内随机事件<span style=""background-color: rgb(255, 0, 0);"">发生次数</span>的分布。分布律为 \[P\{X=k\} = \frac{\lambda^k e^{-\lambda}}{k!}\]<br>记作 \(X \sim P(\lambda)\)&nbsp;另外，根据麦克劳林公式我们有：<br>\[\sum_0^{+\infty} \frac{\lambda}{k!} = e^{\lambda}\]<br>"		分布
+泊松定理	当 n 很大，p 很小，而 \(\lambda = np\) 适中时，二项分布 \(B(n,p)\) 可以用泊松分布 \(P(\lambda)\) 近似。		
+几何分布	描述在独立重复试验中，首次成功所需试验次数的分布。分布律为 \(P\{X=k\} = (1-p)^{k-1}p\)。记作 \(X \sim G(p)\)。		分布
+超几何分布	描述从有限总体中不放回抽样时，抽出的 n 个个体中具有某种属性的个体数。分布律为 \[P\{X=k\} = \frac{C_M^k C_{N-M}^{n-k}}{C_N^n}\]<br>二项分布是放回抽样，当 \(N &gt;&gt; n\) 超几何分布可以近似为二项分布 \(B \left(n,\frac{M}{N} \right) \)&nbsp;		分布
+连续型随机变量	其分布函数 F(x) 可以表示为某个非负函数 f(x) 的积分的随机变量。		
+概率密度函数 (PDF)	对于连续型随机变量 X，其概率密度函数 f(x) 满足 \(F(x) = \int_{-\infty}^x f(t)dt\)。		
+概率密度函数的性质	1. 非负性: \(f(x) \ge 0\)<br>2. 规范性: \(\int_{-\infty}^{+\infty} f(x)dx = 1\)		
+均匀分布	"在区间 \([a,b]\) 上概率密度恒定的分布。PDF为<br>&nbsp;&nbsp;\[f(x) = \frac{1}{b-a}\]<br>对应的分布函数为<br> \[F(x) = \begin{cases}
+0, &amp; x &lt; a, \\
+\frac{x-a}{b-a}, &amp; a \le x &lt; b, \\
+1, &amp; b \le x.
+\end{cases}\]<br><br>其中&nbsp;\(x \in [a,b]\)，记作 \(X \sim U(a,b)\)。<br>"		分布
+指数分布	"描述独立随机事件发生的<span style=""background-color: rgb(255, 0, 0);"">时间间隔</span>的分布。极其重要，在排队论、可靠性分析和寿命分析中广泛应用。（电子元件的寿命、排队系统中顾客到达的时间间隔等）<br><br>PDF为 <br><br>\[f(x) = \begin{cases}
+\lambda e^{-\lambda x}, &amp; x &gt; 0, \\
+0, &amp; \text{其他},
+\end{cases}\]<br><br>对应概率密度为：<br><br>\[F(x) = \begin{cases}
+0, &amp; x &lt; 0, \\
+1 - e^{-kx}, &amp; x \geq 0,
+\end{cases}\]<br>for \(x &gt; 0\)。记作 \(X \sim E(\lambda)\)<br><br><br>"		
+无记忆性 (指数分布与几何分布)	对于指数分布我们有:<br>&nbsp;&nbsp;\(P\{X &gt; s+t | X &gt; s\} = P\{X &gt; t\}\)<br>对于几何分布: <br>\(P\{X &gt; m+n | X &gt; m\} = P\{X &gt; n\}\)		
+正态分布 (高斯分布)	最重要的连续分布。PDF为<br>&nbsp;&nbsp;\[f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]<br>（配方、除系数，填分母）记作 \(X \sim N(\mu, \sigma^2)\)。要对这个形式敏感，因为这个积分不平凡。<br><br>\[F(x)=\frac{1}{\sqrt{2\pi\sigma}}\int_{-\infty}^{x} e^{-\frac{(t-\mu)^2}{2\sigma^2}} dt\]<br>		
+标准正态分布	均值为 0，方差为 1 的正态分布，\(N(0,1)\)。其PDF记为 \(\phi(x)\)，CDF记为 \(\Phi(x)\)。		
+正态分布的标准化	若 \(X \sim N(\mu, \sigma^2)\)，则 \(Z = \frac{X-\mu}{\sigma} \sim N(0,1)\)。		
+随机变量函数的分布 - 离散型	若 \(Y=g(X)\)，则 Y 的分布律为 \[P\{Y=y_j\} = \sum_{g(x_i)=y_j} P\{X=x_i\}\]<br>		
+随机变量函数的分布 - 连续型（定义法）	先求 Y 的分布函数 <br>\[F_Y(y) = P\{Y \le y\} = P\{g(X) \le y\} = \int_{g(x) \le y} f_X(x)dx\]<br>再求导得到密度函数 \(f_Y(y) = F_Y'(y)\)。<br><br>一维随机变量函数使用定义法求解即可，公式法要求处处可导并且严格单调。		
+二维随机变量	由两个随机变量 (X,Y) 组成的随机向量。		
+联合分布函数	\[F(x,y) = P\{X \le x, Y \le y\}\]<br>		
+边缘分布函数	<br>\[F_X(x) = F(x, +\infty)\]<br>\[F_Y(y) = F(+\infty, y)\]<br>		
+二维离散型随机变量 - 联合分布律	\(p_{ij} = P\{X=x_i, Y=y_j\}\)。		
+二维离散型随机变量 - 边缘分布律	\(p_{i\cdot} = \sum_j p_{ij}\)<br>\(p_{\cdot j} = \sum_i p_{ij}\)		
+二维离散型随机变量 - 条件分布律	\(P\{X=x_i | Y=y_j\} = \frac{p_{ij}}{p_{\cdot j}}\)		
+二维连续型随机变量 - 联合概率密度	\(f(x,y)\) 满足 \(F(x,y) = \int_{-\infty}^y \int_{-\infty}^x f(u,v)dudv\)。<br><br>联合可以求边缘和条件。		
+二维连续型随机变量 - 边缘概率密度	从分布函数我们有：<br><br>\[F_X(x)=F(x,+\infty)=\int_{-\infty}^x\int_{-\infty}^{+\infty}f(x,y)dy dx\]<br>\[F_Y(y)=F(+\infty,y)=\int_{-\infty}^y\int_{-\infty}^{+\infty}f(x,y)dx dy\]<br>故而，我们求导得到：<br><br>\[f_X(x) = \int_{-\infty}^{+\infty} f(x,y)dy\]<br>\[f_Y(y) = \int_{-\infty}^{+\infty} f(x,y)dx\]<br>		
+二维连续型随机变量 - 条件概率密度	若 \(f_y(y) \neq 0\)，则称<br><br>\[f_{x|y}(x|y) = \frac{f(x,y)}{f_y(y)}\]<br><br>为在 \(Y=y\) 条件下 \(X\) 的条件概率密度.<br>若 \(f_x(x) \neq 0\)，则称<br><br>\[f_{y|x}(y|x) = \frac{f(x,y)}{f_x(x)}\]<br><br>为在 \(X=x\) 条件下 \(Y\) 的条件概率密度.<br><br>二维连续型随机变量的条件概率分布函数分别为<br><br>\[F_{x|y}(x|y) = \int_{-\infty}^x \frac{f(t,y)}{f_y(y)}dt,\]<br><br>\[F_{y|x}(y|x) = \int_{-\infty}^y \frac{f(x,t)}{f_x(x)}dt.\]<br>边缘和条件一起可以反求联合分布。		
+随机变量独立性的充要条件	X 和 Y 相互独立 \(\iff F(x,y) = F_X(x)F_Y(y)\)。直观意义是 \(X\) 和 \(Y\) 的各自取值没有任何关系。<br><br>进一步，对于连续型是 \(f(x,y)=f_X(x)f_Y(y)\)，对于离散型是 \(p_{ij}=p_{i\cdot}p_{\cdot j}\)。<br><br>一般不独立，条件太严格了，要求区域是矩形区域。		
+二维均匀分布	若(X,Y)在区域D上服从均匀分布，其联合密度为 \(f(x,y) = 1/S(D)\)<br><br>其中S(D)是区域D的面积。仅当D为矩形时X,Y独立。		
+二维正态函数性质	设\( (X,Y) \sim N(\mu_1,\mu_2;\sigma_1^2,\sigma_2^2; \rho) \),则<br><br>(1) 两个边缘分布为{{c1::正态分布,\( X \sim N(\mu_1,\sigma_1^2) \),&nbsp;\( Y \sim N(\mu_2,\sigma_2^2) \)}}<br><br>(2)X 与 Y 相互独立的充分必要条件是{{c2:&nbsp;\( \rho = 0 \)}}，此时独立与不相关等价。<br><br>(3) X 与 Y 的{{c3::非零线性组合&nbsp;\( (aX + bY, cX + dY) \)}} 服从二维正态分布.<br><br>【注】此结论成立的条件是&nbsp;\( \begin{vmatrix} a &amp; b \\ c &amp; d \end{vmatrix} \neq 0 \).<br><br>(4)X 与 Y 的{{c3:非零线性组合&nbsp;\( aX + bY \)}}仍为正态分布, 即&nbsp;\( aX + bY \sim N(a\mu_1 + b\mu_2, a^2\sigma_1^2 + b^2\sigma_2^2 + 2ab\rho\sigma_1\sigma_2) \),<br><br>当X 与 Y 相互独立时,有&nbsp;\( aX + bY \sim N(a\mu_1 + b\mu_2, a^2\sigma_1^2 + b^2\sigma_2^2) \).<br><br>(5) 若&nbsp;\( X \sim N(\mu_1,\sigma_1^2) \),&nbsp;\( Y \sim N(\mu_2,\sigma_2^2) \), 则&nbsp;\( (X,Y) \)&nbsp;{{c4:不一定服从}}二维正态分布.		
+max型分布	首先根据实际意义，找到分布函数：<br>\[F_{\max(X,Y)}(z) = P\{X \le z, Y \le z\} = F(z,z)\]<br>若相互独立即为：<br><br>{{c1::\[F_{max}(z) = F_{X}(z)F_{Y}(z)\]}}<br>		
+数学期望的计算	\(E(X) = \sum_i x_i p_i\)，要求级数绝对收敛。<br>\(E(X) = \int_{-\infty}^{+\infty} x f(x)dx\)，要求积分绝对收敛。		
+数学期望的性质	1. \(E(c)=c\)<br>2. \(E(aX) = aE(X)\)<br>3. \(E(aX+bY) = aE(X)+bE(Y)\)<br>4. 若X,Y独立, \(E(XY)=E(X)E(Y)\)		
+方差的定义与计算	\(D(X) = E\{[X-E(X)]^2\} = E(X^2) - [E(X)]^2\)。		
+方差的性质	1. \(D(c)=\){{c1::0}}<br>2. \(D(X+c)=\)&nbsp;{{c1::\(D(X)\)}}<br>3.\(D(aX) = \)&nbsp;{{c1::\(a^2D(X)\)}}<br>4. \(D(X \pm Y) = \)&nbsp;{{c1::\(D(X)+D(Y) \pm 2\text{Cov}(X,Y)\)}}<br>5. 若X,Y独立, \(D(X \pm Y) = \)&nbsp;{{c1::\(D(X) + D(Y)\)}}&nbsp;		
+协方差	度量两个随机变量线性关系强度的量。记为 \(Cov(X,Y)\)		
+协方差的公式	\(\text{Cov}(X,Y) = E\{[X-E(X)][Y-E(Y)]\} = E(XY) - E(X)E(Y)\)。		
+相关系数的定义与性质	\(\rho_{XY} = \frac{\text{Cov}(X,Y)}{\sqrt{D(X)D(Y)}}\)。<br><br>(1)\(\rho_{xy} \le 1\);<br>(2)\(\rho_{xy} = 1\)的充分必要条件是在常数 \(a\), \(b(a \ne 0)\) 使<br>\[P(Y = aX + b) = 1.\]<br>当 \(a &gt; 0\) (正相关) 时,\(\rho_{xy} = 1\);<br>当 \(a &lt; 0\) (负相关) 时,\(\rho_{xy} = -1\).<br>【注】需要注意的是性质(2)中的隐含条件, 即<br>\(Y=aX+b\) \(\Rightarrow\) \(P(Y=aX+b)=1\) \(\Leftrightarrow\) \(\left| \rho_{xy} \right|=1\).<br><br>事件能够推概率，但是概率无法反推事件的成立。		
+独立与不相关的关系	独立 \(\implies\) 不相关。反之不成立（除非是二维正态分布）。<br>相关&nbsp;\(\implies\)&nbsp;不独立		辨析
+矩	k阶原点矩:&nbsp;{{c1::\(E(X^k)\)}}<br>k阶中心矩: {{c1::\(E\{[X-E(X)]^k\}\)}}<br>k+l阶混合原点矩：{{c1::\(E(X^kY^l)\)}}<br>k+l阶混合中心矩：{{c1::\(E\{[X-E(X)]^k[Y-E(Y)]^l\}\)}}		
+切比雪夫不等式	{{c1::\(P(|X-E(X)|\geq\epsilon)\leq\frac{D(X)}{\epsilon^2}\)}}<br><br>给出了一个概率边界，与具体分布无关。		
+依概率收敛	随机变量序列 \(X_n\) 依概率收敛于 a，如果对任意 \(\varepsilon &gt; 0\)，有 \[\lim_{n\to\infty} P\{|X_n - a| &lt; \varepsilon\} = 1\]记为 \(X_n \xrightarrow{P} a\)。<br>		
+大数定律	考察三个大数定律，切比雪夫、辛钦、伯努利<br><br>他们都给出了一定条件下样本分布和随机变量期望的收敛关系。<br><br>切比雪夫要求{{c1::方差有上界}}、辛钦要求{{c1:: i.i.d. 条件}}和伯努利大数定律{{c1::仅适用二项分布}}。		
+中心极限定理	在相当广泛的条件下，大量独立随机变量之和（或均值）的分布近似于正态分布。		
+列维-林德伯格中心极限定理	若 \(X_i\) i.i.d.，均值为 \(\mu\)，方差为 \(\sigma^2\)，则当 n 很大时，\(\sum X_i \approx N(n\mu, n\sigma^2)\) 且 {{c1::\(\overline{X} \approx N(\mu, \sigma^2/n)\)}}。<br>\[\lim_{n \to \infty} P\left(\frac{\sum_{i=1}^{n} X_i - n\mu}{\sqrt{n\sigma^2}}\right) \le x = \int_{-\infty}^{x} \frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}dt = \Phi(x)\]		
+棣莫弗-拉普拉斯中心极限定理	二项分布 \(B(n,p)\) 在 n 很大时，可以近似为{{c1::正态分布\(N(np,np(1-p))\)}}、<br><br>\( \lim_{n \to \infty} P \left( \frac{Y_n - np}{\sqrt{np(1-p)}} \right) = \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx = \Phi(x) \).		
+总体与样本	总体是研究对象的全体，样本是从总体中抽取的个体集合。简单随机样本要求个体之间独立同分布 (i.i.d.)。		
+样本均值	\[\overline{X} = \frac{1}{n}\sum_{i=1}^n X_i\]<br>性质: \(E(\overline{X})=\mu\), \(D(\overline{X})=\frac{\sigma^2}{n}\)。<br>		
+样本方差	\[S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \overline{X})^2\]<br>性质: \(E(S^2) = \sigma^2\)，符合统计量的一致性，这也是为什么要修正分母。<br>		
+\(\chi^2\) (卡方) 分布	n 个独立标准正态随机变量的平方和所服从的分布，自由度为 n。记为 \(\chi^2(n)\)。<br><br>\(X^2\)分布的上侧 \(\alpha\) 分位数；设随机变量 \(X^2 \sim X^2(n)\)，对于给定的 \(\alpha (0 &lt; \alpha &lt; 1)\)，则称<br><br>\[P(\chi^2 &gt; \chi^2_{\alpha}(n)) = \int_{\chi^2_{\alpha}(n)}^{\infty} f(x) dx = \alpha\]<br><br>的点 \(X^2_{\alpha}(n)\) 为 \(X^2(n)\) 分布的上侧 \(\alpha\) 分位数，如图所示。<br><br>数字特征: \(E(\chi^2(n))=\)&nbsp;{{c1::n}}, \(D(\chi^2(n))=\){{c1::2n}}<br><br>独立可加性，\(X_1^2 \sim X^2(n_1)\), \(X_2^2 \sim X^2(n_2)\)若独立则有：<br><br>&nbsp;\(\chi_1^2+\chi_2^2 \sim \){{c1::\(\chi^2(n_1+n_2)\)}}<br>		
+student-t 分布	随机变量 \(X \sim N(0,1)\), \(Y \sim \chi^2(\omega)\), 且 \(X\) 与 \(Y\) 相互独立, 则称随机变量<br><br>\[T=\frac{X}{\sqrt{Y/n}}\]<br><br>服从自由度为 \(n\) 的 \(t\) 分布, 记为 \(T \sim t(n)\). t分布类似于正态分布，要善于利用其偶函数的性质求解：<br><br>①分布的概率密度 \(f(x)\) 为偶函数，其函数图形关于 \(y\) 轴对称，则有 \(t_{1-\alpha}(n) = -t_{\alpha}(n)\);<br>②\(\lim_{n \to \infty} f(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\), 即当 \(n\) 充分大时，\(t\) 分布近似于 \(N(0,1)\) 分布；<br>③\(T^2 \sim F(1,n)\). <br>④\(1/T^2 \sim F(n,1)\)<br>		
+F 分布	两个独立的 \(\chi^2\) 变量分别除以其自由度的比值。记为 \(F(m,n)\)。\(X \sim \chi^2(m)\)，\(Y \sim \chi^2(n)\)，且X与Y相互独立，则称统计量<br>\[F = \frac{X/m}{Y/n}\]<br>服从自由度为(m,n)的F分布，记作\(F \sim F(m,n)\)，其中m为第一自由度，n为第二自由度。<br><br>①若\(F \sim F(m,n)\),则\(\frac{1}{F} \sim F(n,m)\);<br>②\(F_{1-a}(m,n) = \frac{1}{F_a(n,m)}\).<br>		
+单正态总体的抽样分布	1. \(\frac{\overline{X}-\mu}{\sigma/\sqrt{n}} \sim\)&nbsp; {{c1::\(N(0,1)\)}}<br>2. \(\frac{(n-1)S^2}{\sigma^2} \sim \) {{c1::\(\chi^2(n-1)\)}}<br>3.根据1和2当仅知样本方差，我们使用&nbsp;\(\frac{\overline{X}-\mu}{S/\sqrt{n}} \sim\) {{c1::\(t(n-1)\)}}<br>4. 正态总体假设下，\(\overline{X}\) 与 \(S^2\) 相互独立。<br>5.&nbsp;\(\sum_{i=1}^{n}\left(\frac{X_{i}-\mu}{\sigma}\right)^{2}\sim\) {{c1::\(\chi^{2}(n);\)}}<br><br>单正态总体最多可以得到自由度为 n-1 的 t 分布		
+点估计	用样本统计量的值来估计总体参数的值。		
+矩估计法	用样本（中心或者原点）矩估计总体矩，通过解方程得到参数的估计量。		
+最大似然估计法 (MLE)	寻找使得观测到的样本数据出现的可能性（似然）最大的参数值。通过最大化似然函数 \(L(\theta)\) 或对数似然函数 \(\ln L(\theta)\) 来求解。		
+切比雪夫大数定律	设随机变量序列 \(X_1, X_2, \dots\) 相互独立，且方差存在并有共同上界（即 \(D(X_i) \le c\)），则样{{c1::本均值 \(\overline{X}_n\)}} 依概率收敛于其{{c1::期望的均值 \(\overline{E(X_n)}\)}}。表述为：<br><br>\[\lim_{n\to\infty}P\left(\left|\frac{1}{n}\sum_{k=1}^{n}X_k-\frac{1}{n}\sum_{k=1}^{n}E(X_k)\right|&lt;\epsilon\right)=1.\]		
+伯努利大数定律	设 \(n_A\) 是 n 次独立重复伯努利试验中事件 A 发生的次数，p 是事件 A 在每次试验中发生的概率。则对任意正数 \(\varepsilon\)，有：<br><br>\(\lim_{n \to \infty} P\left\{ \left| \frac{n_A}{n} - p \right| &lt; \varepsilon \right\} = 1\)<br><br>（{{c1::频率}}依概率收敛于概率）		
+总体	在数理统计中，把研究对象的某项数量指标的全体称为总体。		
+简单随机样本	若随机变量 \(X_1, X_2, \dots, X_n\) 相互独立，且与总体 \(X\) 具有相同的分布函数，则称 \(X_1, \dots, X_n\) 为来自总体 \(X\) 的一个容量为 n 的简单随机样本。		
+统计量	"设 \(X_1, X_2, \dots, X_n\) 是来自总体的样本，若样本的<span style=""background-color: rgb(255, 0, 0);"">不含任何未知参数</span>的函数 \(T = T(X_1, \dots, X_n)\) 则称 T 为一个统计量。例如样本均值&nbsp;\(\overline{X}\)&nbsp;和样本方差&nbsp;\(S^2\)。<br><br>\( \bar{X}=\) {{c1::\(\frac{1}{n}\sum_{i=1}^{n}X_{i} \)}}<br>\( S^{2}=\) {{c1::\(\frac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\bar{X})^{2}=\frac{1}{n-1}(\sum_{i=1}^{n}X_{i}^{2}-n\bar{X}^{2}) \)}}<br>\( A_{k}=\) {{c1::\(\frac{1}{n}\sum_{i=1}^{n}X_{i}^{k},k=1,2,\cdots \)}}<br>\( B_{k}=\) {{c1::\(\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\bar{X})^{k},k=2,3,\cdots \)}}<br><br>\( X_{(1)}=\min(X_{1},X_{2},\cdots,X_{n}) \) , \( X_{(n)}=\max(X_{1},X_{2},\cdots,X_{n}) \) , 其分布函数分别为<br><br>\( F_{\min}(x)=P(\min(X_{1},X_{2},\cdots,X_{n})\leq x)=1-[1-F(x)]^{n} \) ,<br>\( F_{\max}(x)=P(\max(X_{1},X_{2},\cdots,X_{n})\leq x)=[F(x)]^{n} \) ,"		
+二维正态分布	若二维连续型随机变量(X,Y)的概率密度为<br><br>\(f(x,y)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left[-\frac{1}{2(1-\rho^2)}\left(\frac{(x-\mu_1)^2}{\sigma_1^2}-\frac{2\rho(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}+\frac{(y-\mu_2)^2}{\sigma_2^2}\right)\right]\)<br><br>其中 \(\mu_1,\mu_2,\sigma_1,\sigma_2,\rho\)为常数,且\(\sigma_1&gt;0,\sigma_2&gt;0,|\rho|&lt;1\),则称(X,Y)服从二元正态分布,记作\((X,Y) \sim N(\mu_1,\mu_2;\sigma_1^2,\sigma_2^2;\rho)\).<br><br>我们要把握住二维正态的性质，我们只要能凑出上面的形式，积分就变得简单，并且能够转换为边缘分布计算。		
+抓阄原理	n个人抓m个有物之阄，则第k个人抓到的概率为 \(\frac{m}{n}\)		
+二维连续随机变量函数（定义法）	设\( (X,Y) \)的概率密度为\( f(x,y) \)，\( Z=g(X,Y) \)，则Z的分布函数为\( F_z(z)=P(Z\leq z) = P(g(X,Y)\leq z) \)<br><br>(1)定义法: {{c1::\(F_z(z)=\iint\limits_{g(x,y)\le z} f(x,y) dxdy\)}}<br><br><br>【注】此种方法的优点是具有普遍性，一般题目均可以使用，但是也存在两个明显的问题：<br><br>(1)变量Z 区间的分段比较难确定；<br>(2) 含有三个变量\( x,y,z \)的二重积分计算难度较大。		
+二维连续随机变量函数（公式法）	若Z=g(X,Y)是X,Y的线性函数，可反解出\(Y=h(X,Z)\)(或\(X=s(Y,Z)\)),则Z的概率密度为<br><br>{{c1::\(f_z(z)=\int_{-\infty}^{\infty}f(x,h(x,z)) \left| \frac{\partial h(x,z)}{\partial z} \right| dx\)}} 或 {{c1::\(f_z(z)=\int_{-\infty}^{\infty}f(s(y,z),y)\left|\frac{\partial s(y,z)}{\partial z}\right|dy\).}}<br><br>常见结论为<br><br>Z=X+Y的密度函数为\(f_z(z)=\int_{-\infty}^{\infty}f(x,z-x)dx=\int_{-\infty}^{\infty}f(z-y,y)dy\);<br><br>Z=X-Y的密度函数为\(f_z(z)=\int_{-\infty}^{\infty}f(x,x-z)dx=\int_{-\infty}^{\infty}f(y+z,y)dy\);	关键在于识别概率密度的非零区间，可以按照两个变量分割来讨论。	
+min型分布	找到分布函数为<br>\(F_{\min}(z)=P(min(X,Y)\leq z)=P(X\leq z \cup Y\leq z)\)<br>\(=P(X\leq z)+P(Y\leq z)-P(X\leq z,Y\leq z)\)<br>\(=F_X(z)+F_Y(z)-F(z,z),\)<br>若X,Y相互独立，则{{c1::\(F_{\min}(z)=1-[1-F_X(z)][1-F_Y(z)]\).}}		
+二维随机变量独立推论	(1) 若 \(X \sim B(n,p)\), \(Y \sim B(m,p)\)，则 {{c1::\(X+Y \sim B(n+m,p)\);}}<br><br>(2) 若 \(X \sim P(\lambda_1)\), \(Y \sim P(\lambda_2)\)，则 {{c1::\(X+Y \sim P(\lambda_1+\lambda_2)\)}};<br><br>(3) 若 \(X \sim N(\mu_1, \sigma_1^2)\), \(Y \sim B(\mu_2, \sigma_2)\)，则&nbsp;{{c1::\( (X,Y) \sim N(\mu_x,\mu_y,\sigma_1^2,\sigma_2^2, \rho) \) , \( X+Y \sim N(\mu_1 + \mu_2,\sigma_{1}^2+\sigma^2_2) \)}}		
+八大分布的数字特征	0-1分布&nbsp; &nbsp;\(X \sim B(1, p)\)&nbsp;{{c1::\(E(X) = p\) \(D(X) = p(1-p)\)}}<br>二项分布\(X \sim B(n, p)\) {{c2::\(E(X) = np\) \(D(x) = np(1-p)\)}}<br>泊松分布\(X \sim P(\lambda)\) {{c3::\(E(X) = \lambda\) \(D(X) = \lambda\)}}<br>均匀分布\(X \sim U(a,b)\) {{c4::\(E(X) = \frac{a+b}{2}\) \(D(X) = \frac{(b-a)^2}{12}\)}}<br>指数分布\(X \sim E(\lambda)\) {{c5::\(E(X) = \frac{1}{\lambda}\) \(D(X) = \frac{1}{\lambda^2}\)}}<br>正态分布\(X \sim N(\mu, \sigma^2)\) {{c6::\(E(X) = \mu\)&nbsp;\(D(X) = \sigma^2\)}}<br>几何分布\(X \sim G(p)\)&nbsp;{{c7::\(E(X) = \frac{1}{p}\) \(D(X) = \frac{1-p}{p^2}\)}}<br>超几何分布&nbsp;\(X \sim H(N, M, n)\) {{c8::\(E(X) = n \frac{M}{N}\) \(D(x)\frac{n}{N} \frac{M}{N} (1 - \frac{M}{N}) (\frac{N-n}{N-1})\)}} （抓阄原理）		
+协方差性质	(1)\(Cov(X,Y)=\)&nbsp;{{c1::\(Cov(Y,X)\)}};<br>(2)\(Cov(X,X)=\){{c1::\(D(X)\)}};<br>(3)\(Cov(X,c)=\){{c1::0}} c为任意常数;<br>(4)\(Cov(aX,bY)=\)&nbsp;{{c1::\(abCov(X,Y)\)}}，a,b是任意常数;<br>(5)\(Cov(X_1+X_2,Y)=\)&nbsp;{{c1::\(Cov(X_1,Y)+Cov(X_2,Y)\)}};<br>(6)\(Cov(X_1+X_2+Y_2)=\)&nbsp;{{c1::\(Cov(X_1,Y_1)+Cov(X_1,Y_2)+Cov(X_2,Y_1)+Cov(X_2,Y_2)\)}};<br>(7)如果X与Y独立，则\(Cov(X,Y)=\)&nbsp;{{c1::0}}.<br><br>【注】以上性质中,最重要最常用的性质(6)和(7).运用性质(6)将大规模的协方差分解为若干小规模的协方差,进一步运用性质(7)简化协方差的运算.		
+随机变量不相关等价于	{{c1::\(\Leftrightarrow E(XY)=E(X)E(Y)\)}}<br>{{c1::\( \Leftrightarrow Cov(X,Y)=0\)}}<br>{{c1::\(\Leftrightarrow D(X \pm Y)=D(X)+D(Y)\)}}		
+辛钦大数定律	若随机变量 \(X_1,X_2,\dots,X_n\) 相互独立同分布，有相同的数学期望 \(E(X_i) = \mu\)，且对任意正数 \(\epsilon\)，有<br><br>\[\lim_{n \to \infty} P \left( \left| \frac{1}{n} \sum_{i=1}^{n} X_i - \mu \right| \le \epsilon \right) = 1.\]<br><br>定理表明：当 \(n\) 充分大时，独立同分布的随机变量的{{c1::平均值 \(\frac{1}{n} \sum_{i=1}^{n} X_i\)}} 依概率收敛于它的数学期望 {{c1::\(\mu\)}}。		
+统计量的数字特征	\(E(\bar{X})=\) {{c1::\(E(\frac{1}{n}\sum_{i=1}^{n}X_{i})=\frac{1}{n}E(\sum_{i=1}^{n}X_{i})=\frac{1}{n}\cdot n\mu=\mu,\)}}<br><br>\(D(\bar{X}\)= {{c1::\(D(\frac{1}{n}\sum_{i=1}^{n}X_{i})=\frac{1}{n^{2}}D(\sum_{i=1}^{n}X_{i})=\frac{1}{n^{2}}\cdot n\sigma^{2}=\frac{\sigma^{2}}{n},\)}}<br><br>\(E(S^{2})=\) {{c1::\(\sigma^{2}\)}}<br><br>我们的统计量加上了修正就是为了让我们的期望和随机变量的对应数字特征相等。比如样本均值的期望应该等于随机变量的期望。样本方差的期望应当等于随机变量的方差。		
+经验分布函数	"设 \(x_1,x_2,\dots,x_n\) 是总体分布函数为 \(F(x)\) 的总体 \(X\) 的样本观测值，则 \(X\) 的经验分布函数 \(F_n(x)\) .定义 \(X\) 样本观测值 \(x_1,x_2,\dots,x_n\) 中小{{c1::于或等于指定值 \(x\) 所占的比例}}，即<br><br>\[F_n(x) = \frac{N(x; \leq x)}{n}, \quad -\infty &lt; x &lt; \infty,\]<br><br>其中 \(N(x; \leq x)\) 表示 \(x_1,x_2,\dots,x_n\) 中小于或等于 \(x\) 的个数。<br><br>一般来说，设 \(x_1,x_2,\dots,x_n\) 是总体 \(X\) 的一个容量为 \(n\) 的样本观测值，先将 \(x_1,x_2,\dots,x_n\) 按从小到大的次序排序，并重新编号为<br><br>\[x_{(1)} \leq x_{(2)} \leq \dots \leq x_{(n)},\]<br><br>则经验分布函数 \(F_n(x)\) 可写成<br><br>\[F_n(x) = 
+\begin{cases}
+0, &amp; x &lt; x_{(1)}, \\
+k/n, &amp; x_{(k)} \leq x &lt; x_{(k+1)}, k = 1,2,\dots,n-1, \\
+1, &amp; x \geq x_{(n)},
+\end{cases}\]"		
+双正态总体的抽样分布	\( \bar{X} + \bar{Y} \sim\)&nbsp; {{c1::\( N\left(\mu_1 + \mu_2, \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}\right) \)}}.<br><br>由于在实际应用中X-Y应用更多，我们特别注意\(\frac{(\bar{X} - \bar{Y}) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sim N(0,1)\).<br><br>&gt; 方差对符号并不敏感，或者说方差的平方就是为了消除符号的影响<br><br>\(\frac{(n_1 - 1)S_1^2}{\sigma_1^2} + \frac{(n_2 - 1)S_2^2}{\sigma_2^2} \sim\) {{c1::\(\chi^2(n_1 + n_2 - 2)\)}};<br><br>\(\frac{ \frac{1}{\sigma^2} \sum_{i=1}^{n_1}(X_i-\mu_1)^2 / n_1}{\frac{1}{\sigma^2} \sum_{j=1}^{n_2}(Y_j-\mu_2)^2 / n_2} \sim\) {{c1::\( F(n_1,n_2)\)}}<br><br>\(\frac{ \frac{(n_1-1)S_1^2}{\sigma_1^2} \left/ (n_1 - 1) \right.}{\frac{(n_2-1)S_2^2}{\sigma_2^2} \left/ (n_2 - 1) \right.}= \) {{c1::\(F(n_1,n_2\)}}<br><br><br>（3）若\(\sigma_1^2 = \sigma_2^2\)，则有<br><br>\[T=\frac{\frac{(\bar{X}-\bar{Y})-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}}{\left[\frac{(n_1-1)S_1^2}{\sigma_1^2} + \frac{(n_2-1)S_2^2}{\sigma_2^2}\right] \left/ (n_1 + n_2 - 1) \right.} =\frac{\bar{X}-\bar{Y}-(\mu_1-\mu_2)}{S_w\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}\sim t(n_1+n_2-2)\]<br>其中\[S_w^2=\frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{n_1+n_2-2}\]<br><br>【注】由(3)可以清晰地认识到，在双正态总体的前提下，最多可以得到自由度为$n_1 + n_2 - 2$的t分布。<br><br>		
+最大似然估计量	首先计算似然函数：<br><br>\(L(\theta)=L(x_1,x_2,...,x_n,\theta)=\prod_{i=1}^n f(x_i,\theta)\)<br><br>若<br><br>\(L(x_1,x_2,...,x_n;\theta)=\max(L(x_1,x_2,...,x_n;\theta))\)<br><br>则称\( \hat{\theta}(x_1,x_2,...,x_n) \)为参数\(\theta\)的最大似然估计值，称\(\hat{\theta}(X_1,X_2,...,X_n)\)为参数\(\theta\)的最大似然估计量，最大似然估计值与最大似然估计量统称为最大似然估计，称这种估计方法为最大似然估计法。		
