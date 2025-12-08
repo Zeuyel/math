@@ -82,7 +82,7 @@ $$
 $$
 注意到了$(-1)^n \cdot (-1)^{2n} = 1$， 负号被消掉了！所以导致展开所有项都是正的：
 
-$$\frac{d}{dx} \arcsin(x) = \sum_{n=0}^{\infty} \frac{(2n)!}{2^{2n}(n!)^2} x^{2n}$$
+$$\frac{d}{dx} \arcsin(x) = \sum_{n=0}^{\infty} \frac{(2n)!}{2^{2n}(n!)^2} x^{2n} = \sum_{n=0}^{\infty} \frac{(2n -1)!!}{(2n)!!} x^{2n}$$
 
 写出几项（记忆这个）：
 
